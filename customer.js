@@ -13,11 +13,9 @@ Customer.prototype={
   },
 
   buy: function(record){
-    if(record.mediaType === "record"){
-      if(this.hasMoney){
+    if(record.mediaType === "record" && this.hasMoney){
         this.balance-=record.price
         this.records.push(record)
-      }
     }
   },
 
@@ -35,11 +33,9 @@ Customer.prototype={
   },
 
   sell: function(record){
-    if(record.mediaType === "record"){
-      if (this.recordIsInRecords(record)){
+    if(record.mediaType === "record" && this.recordIsInRecords(record)){
         this.addMoneyToBalance(record);
         this.removeRecordFromRecords(record);
-      }
     }  
   }
 
